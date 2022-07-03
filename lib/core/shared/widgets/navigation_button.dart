@@ -11,6 +11,7 @@ class NavigationButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final navigationBloc = BlocProvider.of<NavigationBloc>(context);
+    final size = MediaQuery.of(context).size;
     return Align(
         alignment: Alignment.bottomCenter,
         child: Container(
@@ -23,7 +24,6 @@ class NavigationButton extends StatelessWidget {
           child: BlocSelector<NavigationBloc, NavigationState, int>(
             selector: (state) => state.currentIndex,
             builder: (_, currentIndex) {
-              print(currentIndex);
               return Stack(
                 clipBehavior: Clip.none,
                 children: [
@@ -55,10 +55,8 @@ class NavigationButton extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                      left: (MediaQuery.of(context).size.width / 2) -
-                          (sizeGlobal / 2),
-                      right: (MediaQuery.of(context).size.width / 2) -
-                          (sizeGlobal / 2),
+                      left: (size.width / 2) - (sizeGlobal / 2),
+                      right: (size.width / 2) - (sizeGlobal / 2),
                       top: -35,
                       child: CupertinoButton(
                         padding: EdgeInsets.zero,
