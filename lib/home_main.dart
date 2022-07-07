@@ -17,6 +17,11 @@ class HomeMain extends StatelessWidget {
       selector: (state) => state.currentIndex,
       builder: (context, currentIndex) {
         return Scaffold(
+          appBar: PreferredSize(
+              preferredSize: preferredSize,
+              child: CustomAppbar(
+                home: currentIndex == 0,
+              )),
           resizeToAvoidBottomInset: false,
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           body: Stack(
@@ -24,10 +29,7 @@ class HomeMain extends StatelessWidget {
               IndexedStack(
                 index: currentIndex,
                 children: [
-                  // const HomeScreen(),
-                  Container(
-                    color: Colors.pink,
-                  ),
+                  const HomeScreen(),
                   Container(
                     color: Colors.yellow,
                   ),
@@ -49,4 +51,6 @@ class HomeMain extends StatelessWidget {
       },
     );
   }
+
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
