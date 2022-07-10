@@ -23,7 +23,7 @@ class HomeMain extends StatelessWidget {
                 home: currentIndex == 0,
               )),
           resizeToAvoidBottomInset: false,
-          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          backgroundColor: const Color(0xffF0F1F5),
           body: Stack(
             children: [
               IndexedStack(
